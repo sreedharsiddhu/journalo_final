@@ -47,7 +47,6 @@ struct MovableElementView: View {
                     .frame(width: 150) // Fixed base size
                     .scaleEffect(element.scale) // Apply visual scale
                     .rotationEffect(.degrees(element.rotation))
-                    .border(Color.blue.opacity(0.5), width: 1 / element.scale)
                     
             } else if let text = element.text {
                 Text(text)

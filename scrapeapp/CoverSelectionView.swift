@@ -8,16 +8,20 @@ struct CoverSelectionView: View {
     // FIX: Using consistent naming ("Book Cover [Number]") for all assets.
     // NOTE: All 10 images must exist in your Assets.xcassets with these exact names.
     let availableCovers: [UIImage] = [
-        UIImage(named: "Book Cover 1")!,
-        UIImage(named: "Book Cover2")!,
-        UIImage(named: "Book Cover3")!,
-        UIImage(named: "Book Cover4")!,
-        UIImage(named: "Book Cover5")!,
-        // Added missing asset 6
-        UIImage(named: "Book Cover7")!,
-        UIImage(named: "Book Cover8")!,
-        UIImage(named: "Book Cover9")!,
-        UIImage(named: "Book Cover10")!
+        UIImage(named: "cover1")!,
+        UIImage(named: "cover2")!,
+        UIImage(named: "cover3")!,
+        UIImage(named: "cover4")!,
+        UIImage(named: "cover5")!,
+        UIImage(named: "cover6")!,
+        UIImage(named: "cover7")!,
+        UIImage(named: "cover8")!,
+        UIImage(named: "cover9")!,
+        UIImage(named: "cover10")!,
+        UIImage(named: "cover11")!,
+        UIImage(named: "cover12")!,
+        UIImage(named: "cover13")!,
+        UIImage(named: "cover14")!
     ]
     
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)

@@ -4,7 +4,9 @@
         <attribute name="bodyContent" optional="YES" attributeType="Binary"/>
         <attribute name="coverImageData" optional="YES" attributeType="Binary"/>
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="drawingData" optional="YES" attributeType="Binary"/>
         <attribute name="pageStyle" optional="YES" attributeType="String"/>
+        <attribute name="scrapbookID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
 </model>

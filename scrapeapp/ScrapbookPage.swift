@@ -92,9 +92,11 @@ struct PageElement: Identifiable, Codable {
 struct ScrapbookPage: Identifiable, Codable {
     let id: UUID
     var elements: [PageElement] = []
+    var drawingData: Data? // ADDED: Store PKDrawing as Data for each page
     
-    init(id: UUID = UUID(), elements: [PageElement] = []) {
+    init(id: UUID = UUID(), elements: [PageElement] = [], drawingData: Data? = nil) {
         self.id = id
         self.elements = elements
+        self.drawingData = drawingData
     }
 }

@@ -3,35 +3,43 @@ import UIKit
 import CoreData
 
 struct ScrapbookCoverView: View {
-    var scrapbook: Scrapbook
+    @ObservedObject var scrapbook: Scrapbook
 
     var body: some View {
-        // Explicitly centered VStack
-        VStack(alignment: .center, spacing: 5) {
-            Group {
-                if let imageData = scrapbook.coverImageData, let uiImage = UIImage(data: imageData) {
+        Group {
+            if let imageData = scrapbook.coverImageData {
+                #if os(macOS)
+                if let nsImage = NSImage(data: imageData) {
+                    Image(nsImage: nsImage)
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    Rectangle()
+                        .fill(Color(red: 0.6, green: 0.74, blue: 0.87))
+                }
+                #else
+                if let uiImage = UIImage(data: imageData) {
                     Image(uiImage: uiImage)
                         .resizable()
                         .scaledToFill()
                 } else {
-                    // Fallback rectangle maintains the same shape
                     Rectangle()
-                        .fill(Color.gray.opacity(0.3))
+                        .fill(Color(red: 0.6, green: 0.74, blue: 0.87))
                 }
-            }
-            // Enforced fixed size to standardize the visual ratio (150x200)
-            .frame(width: 150, height: 200)
-            .clipped()
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .shadow(radius: 5)
-            
-            if let date = scrapbook.creationDate {
-                Text(date, style: .date)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
+                #endif
+            } else {
+                Rectangle()
+                    .fill(Color(red: 0.6, green: 0.74, blue: 0.87))
             }
         }
-        // FIX: The outer .frame(width: 170) is REMOVED to enable centered adaptive layout.
+        .frame(width: 154.38017, height: 230.69321)
+        .clipped()
+        .cornerRadius(5)
+        .shadow(color: .black.opacity(0.25), radius: 21.5, x: 0, y: 26)
+        .overlay(
+            RoundedRectangle(cornerRadius: 5)
+                .inset(by: 0.5)
+                .stroke(.black, lineWidth: 1)
+        )
     }
 }
